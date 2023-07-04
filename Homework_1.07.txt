@@ -1,0 +1,17 @@
+﻿#!/bin/bash
+for run in {1..10}
+do
+date +%T
+#sleep 3
+done
+
+ps -ef | wc -l >> file.txt
+cat /proc/cpuinfo >> file.txt
+cat /etc/os-release | grep NAME | head -1 >> file.txt
+cat /etc/os-release | grep v3.12 | awk '{print$1}' | sed 's/PRETTY_NAME=''//' >> file.txt
+
+for run in {50..100}
+do
+touch ${run}.txt
+done
+
